@@ -1,7 +1,11 @@
 #include <iostream>
 
+#include "vision.h"
+
 int main(int argc, char **argv) {
-    std::cout << "vision" << std::endl;
+    std::cout << "Test vision." << std::endl;
+    
+    vision::Init();
 
     return 0;
 }
