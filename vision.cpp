@@ -4,6 +4,7 @@
 namespace vision {
     
 std::string d455_serial_number = "105322251084"; //SerNo: 105322252154
+std::string t265_serial_number = "925122110508";
 
 uint32_t FrameCnt = 0;
 std::atomic<bool> NewD455(false);
@@ -35,6 +36,9 @@ void GetSerNo() {
         std::cout << "SerNo: " << serno << std::endl;        
         if (name.find("D455") != std::string::npos) {
             d455_serial_number = serno;
+        }
+        if (name.find("T265") != std::string::npos) {
+            t265_serial_number = serno;
         }
     }
     std::cout << "-----------------------------------------" << std::endl;

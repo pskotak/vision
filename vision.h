@@ -10,6 +10,8 @@
 
 namespace vision {
 
+extern std::string t265_serial_number;
+    
 #define D455FrameRate 30
 
 extern cv::Mat depth_image16;
