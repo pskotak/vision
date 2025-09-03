@@ -3,8 +3,8 @@
 
 namespace vision {
     
-const std::string d455_serial_number = "105322251084";
-    
+std::string d455_serial_number = "105322251084"; //SerNo: 105322252154
+
 uint32_t FrameCnt = 0;
 std::atomic<bool> NewD455(false);
 cv::Mat depth_image16;
@@ -21,7 +21,28 @@ std::vector<T3Dpoint> PointCloud;
 std::vector<TScanPoint> ScPoints;
 std::vector<float> Distances;
 
+void GetSerNo() {
+    std::string serno,name,productid;
+    rs2::context ctx;
+    
+    std::cout << std::endl << "Cameras --------------------" << std::endl;
+    for (auto&& dev : ctx.query_devices()) {
+        name = dev.get_info(RS2_CAMERA_INFO_NAME);
+        productid = dev.get_info(RS2_CAMERA_INFO_PRODUCT_ID);
+        serno = dev.get_info(RS2_CAMERA_INFO_SERIAL_NUMBER);
+        std::cout << "Name: " << name << std::endl;
+        //std::cout << "ProdId: " << productid << std::endl;
+        std::cout << "SerNo: " << serno << std::endl;        
+        if (name.find("D455") != std::string::npos) {
+            d455_serial_number = serno;
+        }
+    }
+    std::cout << "-----------------------------------------" << std::endl;
+    std::cout << std::endl;
+}
+
 void Init() {
+    GetSerNo();
     std::cout << "Vision module init" << std::endl;
     NewD455 = false;
     depth_image16 = cv::Mat(cv::Size(D455H,D455W),CV_16SC1);

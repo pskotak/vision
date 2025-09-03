@@ -25,6 +25,7 @@ extern std::vector<T3Dpoint> PointCloud;
 extern std::vector<TScanPoint> ScPoints;
 extern std::vector<float> Distances;
 
+extern void GetSerNo();
 extern void Init();
 extern void Frame();
 
