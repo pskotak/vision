@@ -18,7 +18,7 @@ rs2::frameset d455_frames;
 uint32_t StartPcRow = 0;
 uint32_t EndPcRow = D455H;
 uint32_t IgnoreFromLeft = 120;
-std::vector<T3Dpoint> PointCloud;
+std::vector<TPoint3D> PointCloud;
 std::vector<TScanPoint> ScPoints;
 std::vector<float> Distances;
 
@@ -65,7 +65,7 @@ void Frame() {
     rs2::points points;
     const rs2::vertex *pc_vertices;
     rs2::vertex v;
-    T3Dpoint P;
+    TPoint3D P;
     TScanPoint sP;
     
     d455_frames = d455_pipe.wait_for_frames();

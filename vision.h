@@ -23,7 +23,7 @@ extern uint32_t StartPcRow;
 extern uint32_t EndPcRow;
 extern uint32_t IgnoreFromLeft;
 
-extern std::vector<T3Dpoint> PointCloud;
+extern std::vector<TPoint3D> PointCloud;
 extern std::vector<TScanPoint> ScPoints;
 extern std::vector<float> Distances;
 
